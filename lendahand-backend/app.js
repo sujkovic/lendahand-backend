@@ -6,7 +6,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-const feedRouter = require("./routes/feed"); // import routes for feed
+var feedRouter = require("./routes/feed"); // import routes for feed
 
 var app = express();
 
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/feed", feedRouter);
+app.use("/events", feedRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

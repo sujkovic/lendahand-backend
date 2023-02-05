@@ -31,7 +31,7 @@ router.get("/event/update", event_controller.event_update_post);
 router.get("/event/:id", event_controller.event_detail);
 
 //  GET request for list of all events
-router.get("./events", event_controller.event_list);
+router.get("/events", event_controller.event_list);
 
 //                  User Routes                     //
 

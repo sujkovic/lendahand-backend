@@ -4,8 +4,18 @@ exports.index = (req, res) => {
   res.send("NOT IMPLEMENTED: HOME PAGE");
 };
 
-exports.event_list = (req, res) => {
-  res.send("events list");
+exports.event_list = function (req, res, next) {
+  Event.find()
+    .sort([["name", "ascending"]])
+    .exec(function (err, list_events) {
+      if (err) {
+        return next(err);
+      }
+      //  success, render
+      res.render("event_list", {
+        event_list: list_events,
+      });
+    });
 };
 
 exports.event_detail = (req, res) => {
